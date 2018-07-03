@@ -50,12 +50,16 @@ matrix:
         - git clone https://github.com/flutter/flutter.git -b alpha --depth 1
       script:
         - ./flutter/bin/flutter -v build ios --no-codesign
-      deploy:
-          provider: releases
-          api_key: "$GITHUB_OAUTH_TOKEN"
-          skip_cleanup: true
-          on: 
-              tags: true
+      after_script:
+        - git add -f build/ios/iphoneos/Runner.app
+        - git commit -m "Added the iOS app"
+        - git push
+      #deploy:
+       #   provider: releases
+        #  api_key: "$GITHUB_OAUTH_TOKEN"
+         # skip_cleanup: true
+          #on: 
+           #   tags: true
         
 
 cache:
