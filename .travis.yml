@@ -40,6 +40,7 @@ matrix:
       osx_image: xcode8.3
       before_script:
         - brew update
+        - brew link --overwrite python@2
         - brew install --HEAD libimobiledevice
         - brew install ideviceinstaller
         - brew install ios-deploy
