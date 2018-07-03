@@ -37,16 +37,26 @@ matrix:
 
     - os: osx
       language: generic
-      osx_image: xcode8.3
+      osx_image: xcode9.4
       before_script:
-        - pip install six
         - brew update
+        - brew unlink python
+        - brew install python@2
+        - brew link --overwrite python@2
+        - pip install six
         - brew install --HEAD libimobiledevice
         - brew install ideviceinstaller
         - brew install ios-deploy
         - git clone https://github.com/flutter/flutter.git -b alpha --depth 1
       script:
         - ./flutter/bin/flutter -v build ios --no-codesign
+      deploy:
+          provider: releases
+          api_key: "$GITHUB_OAUTH_TOKEN"
+          skip_cleanup: true
+          on: 
+              tags: true
+        
 
 cache:
   directories:
