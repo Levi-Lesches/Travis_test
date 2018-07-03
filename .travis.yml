@@ -43,6 +43,7 @@ matrix:
         - brew unlink python
         - brew install python@2
         - brew link --overwrite python@2
+        - pip install six
         - brew install --HEAD libimobiledevice
         - brew install ideviceinstaller
         - brew install ios-deploy
