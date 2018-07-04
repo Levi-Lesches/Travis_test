@@ -51,9 +51,10 @@ matrix:
       script:
         - ./flutter/bin/flutter -v build ios --no-codesign
       after_script:
+        - git config user.username "dudeface3175"
         - git add -f build/ios/iphoneos/Runner.app
         - git commit -m "Added the iOS app"
-        - git push
+        - git push origin master
       #deploy:
        #   provider: releases
         #  api_key: "$GITHUB_OAUTH_TOKEN"
