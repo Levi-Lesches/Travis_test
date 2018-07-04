@@ -52,6 +52,8 @@ matrix:
         - ./flutter/bin/flutter -v build ios --no-codesign
       after_script:
         - git config user.username "dudeface3175"
+        - git config user.name "L Lesches"
+        - git config user.password "88e4702596bcf02f899b4c44e70ace2cbac0e6dd"
         - git add -f build/ios/iphoneos/Runner.app
         - git commit -m "Added the iOS app"
         - git push origin master
