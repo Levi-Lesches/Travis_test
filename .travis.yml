@@ -53,6 +53,7 @@ matrix:
       after_script:
         - git config user.username "dudeface3175"
         - git config user.name "L Lesches"
+        - git config user.email "searunner8@gmail.com"
         - git config user.password "$GITHUB_OAUTH_TOKEN"
         - git add -f build/ios/iphoneos/Runner.app
         - git commit -m "Added the iOS app"
